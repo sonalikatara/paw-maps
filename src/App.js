@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Switch, Router, Route, Link } from 'react-router-dom';
+import { Switch, Route, Link } from 'react-router-dom';
 import createBrowserHistory from 'history/createBrowserHistory';
 import logo from './logo.svg';
 import './App.css';
+import MapsContainer from './Components/MapsContainer'
 
 const Page = ({ title }) => (
     <div className="App">
@@ -22,22 +23,25 @@ const Page = ({ title }) => (
         </p>
       </div>
       <p className="App-intro">
-        This is the {title} page.
+          {title}
       </p>
+      <div>
+        <MapsContainer />
+      </div>
 
     </div>
 );
 
 const Home = (props) => (
-  <Page title="Static Maps - guide you where every you are .."/>
+  <Page title="🌐 Static Maps - guide you where every you are .."/>
 );
 
 const About = (props) => (
-  <Page title="About"/>
+  <Page title="This app was created with ❤️ by me, PWA explorer"/>
 );
 
 const Settings = (props) => (
-  <Page title="Settings"/>
+  <Page title="🌐 Settings"/>
 );
 
 class App extends Component {
