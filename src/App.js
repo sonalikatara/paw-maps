@@ -9,19 +9,22 @@ const Page = ({ title }) => (
       <div className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <h2>{title}</h2>
+        <p>
+        <span className="link" >
+         <Link to="/">Home</Link>
+        </span>
+        <span className="link">
+         <Link to="/about">About</Link>
+        </span>
+        <span className="link">
+          <Link to="/settings">Settings</Link>
+        </span>
+        </p>
       </div>
       <p className="App-intro">
         This is the {title} page.
       </p>
-      <p>
-        <Link to="/">Home</Link>
-      </p>
-      <p>
-        <Link to="/about">About</Link>
-      </p>
-      <p>
-        <Link to="/settings">Settings</Link>
-      </p>
+
     </div>
 );
 
