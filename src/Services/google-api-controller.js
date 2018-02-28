@@ -7,7 +7,7 @@ const GEOLOCATION_OPTIONS = {
   method: 'POST',
   hostname: 'www.googleapis.com',
   port: null,
-  path: `/geolocation/v1/geolocate?key=${GOOGLE_API_KEY}`,
+  path: `/geolocation/v1/geolocate?key=${GOOGLE_KEY}`,
   headers: {
     'content-type': 'application/json',
     'cache-control': 'no-cache',

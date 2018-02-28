@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { Switch, Route, Link } from 'react-router-dom';
-import createBrowserHistory from 'history/createBrowserHistory';
+//import createBrowserHistory from 'history/createBrowserHistory';
 import logo from './logo.svg';
 import './App.css';
 import MapsContainer from './Components/MapsContainer'
+
 
 const Page = ({ title }) => (
     <div className="App">
@@ -25,9 +26,6 @@ const Page = ({ title }) => (
       <p className="App-intro">
           {title}
       </p>
-      <div>
-        <MapsContainer />
-      </div>
 
     </div>
 );
@@ -45,12 +43,39 @@ const Settings = (props) => (
 );
 
 class App extends Component {
+   state = {
+    latitude: 0,
+    longitude: 0
+  }
+
+  componentDidMount(){
+    if(this.state.longitude===0){
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(this.currentPosition)
+      } else {
+        alert('Sorry your browser doesn\'t support the Geolocation API');
+      }
+    }
+  }
+
+ currentPosition = (position)=> {
+     this.setState({latitude: position.coords.latitude, longitude: position.coords.longitude})
+     console.log(this.state.latitude)
+  }
+
+
 
   render() {
-    const browserHistory = createBrowserHistory();
+   // const browserHistory = createBrowserHistory();
     return (
       <Switch >
-        <Route exact path="/" component={Home} />
+        <Route exact path="/" render={ ()=>(
+            <div>
+                <Page title="🌐 Static Maps - guide you where every you are .."/>
+);
+               <MapsContainer latitude={this.state.latitude} longitude={this.state.longitude}/>
+            </div>
+          )} />
         <Route path="/about" component={About} />
         <Route path="/settings" component={Settings} />
       </Switch>
