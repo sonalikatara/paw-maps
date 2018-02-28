@@ -37,7 +37,7 @@ const Home = (props) => (
 );
 
 const About = (props) => (
-  <Page title="This app was created with ❤️ by me, PWA explorer"/>
+  <Page title="This app was created with ❤️ by a PWA explorer"/>
 );
 
 const Settings = (props) => (
